@@ -1,0 +1,67 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Web Page</title>
+</head>
+
+<body>
+    <header>
+        <h1>Task 1</h1>
+    </header>
+    <div class="container">
+        <div class="data-img">
+            <img src="./IMG-20230820-WA0023.jpg" alt="Asuquo Michael" data-testid="slackDisplayImage" />
+
+        </div>
+        <div class="data-details">
+            <span>Name :</span>
+            <p data-testid="slackUserName">Asuquo Michael</p>
+        </div>
+        <div class="data-details">
+            <span>Current Day of the Week :</span>
+            <p id="currentDay" data-testid="currentDayOfTheWeek"></p>
+        </div>
+        <div class="data-details">
+            <span>Current UTC Time :</span>
+            <p id="currentUTC" data-testid="currentUTCTime">{{ currentUTCTime }}</p>
+        </div>
+        <div class="data-details">
+            <span>Track :</span>
+            <p data-testid="myTrack">Frontend Development</p>
+        </div>
+
+        <div class="github-url">
+            <a href="https://github.com/Toluwalase12/Hngtask1" target="_blank" data-testid="githubURL"> <span>Github
+                    repo</span>
+            </a>
+        </div>
+
+    </div>
+
+    <script>
+        function updateDayAndTime() {
+            const currentDayOfWeek = document.querySelector('[data-testid="currentDayOfTheWeek"]')
+            const currentUTCTime = document.querySelector('[data-testid="currentUTCTime"]');
+
+            const today = new Date();
+
+            const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+            const dayOfWeek = daysOfWeek[today.getDay()];
+
+            currentDayOfWeek.textContent = dayOfWeek;
+            currentUTCTime.textContent = today.getTime();
+        }
+
+        updateDayAndTime()
+
+        setInterval(updateDayAndTime, 1000);
+
+
+    </script>
+</body>
+
+</html>
